@@ -41,7 +41,7 @@ def search_for_artist(token, artist_name):
         print("No artist name exists")
         return None
     
-    print(json_result[0])
+    return json_result[0]
 
 token = get_token()
 search_for_artist(token, "bts")

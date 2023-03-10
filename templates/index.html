@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Artist Search</title>
+  </head>
+  <body>
+    <h1>Artist Search</h1>
+    <form method="POST">
+      <label for="artist-name">Artist Name:</label>
+      <input type="text" id="artist-name" name="artist_name" required>
+      <button type="submit">Search</button>
+    </form>
+    {% if artist %}
+      <h2>Search Result:</h2>
+      <p>Name: {{ artist.name }}</p>
+      <p>Followers: {{ artist.followers.total }}</p>
+      <img src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
+  
+    {% endif %}
+  </body>
+</html>
