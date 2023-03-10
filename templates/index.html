@@ -1,21 +1,21 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Artist Search</title>
-  </head>
-  <body>
-    <h1>Artist Search</h1>
-    <form method="POST">
-      <label for="artist-name">Artist Name:</label>
-      <input type="text" id="artist-name" name="artist_name" required>
-      <button type="submit">Search</button>
-    </form>
-    {% if artist %}
-      <h2>Search Result:</h2>
-      <p>Name: {{ artist.name }}</p>
-      <p>Followers: {{ artist.followers.total }}</p>
-      <img src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
-  
-    {% endif %}
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 className="title">Find Info for Your Favourite Artists</h1>
+  <h1>Artist Search</h1>
+  <form method="POST">
+    <label for="artist-name">Artist Name:</label>
+    <input type="text" id="artist-name" name="artist_name" required>
+    <button type="submit">Search</button>
+  </form>
+  {% if artist %}
+    <h2>Search Result:</h2>
+    <p>Name: {{ artist.name }}</p>
+    <p>Followers: {{ artist.followers.total }}</p>
+    <img src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
+    <h3>Top Tracks:</h3>
+    <p>{{ cleaner(get_songs_by_artist(token, artist.id)) }}</p>
+  {% elif artist is none %}
+    <h2>Artist not found</h2>
+  {% endif %}
+{% endblock %}
