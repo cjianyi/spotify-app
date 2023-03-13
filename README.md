@@ -1,4 +1,4 @@
-# Project Name (Work in Progress)
+# Retrieve Spotify Artists Info (Work in Progress)
 This is a Flask application for searching and retrieving information about music artists and their songs using the Spotify API.
 
 ## Installation
