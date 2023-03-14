@@ -1,4 +1,4 @@
-# Retrieve Spotify Artists Info (Work in Progress)
+# Retrieve Spotify Artists Info with oauth2 (Work in Progress)
 This is a Flask application for searching and retrieving information about music artists and their songs using the Spotify API.
 
 ## Installation
@@ -8,6 +8,7 @@ Set the CLIENT_ID and CLIENT_SECRET environment variables with your Spotify API 
 Run the application using python app.py.
 ## Usage
 Navigate to http://localhost:5000 in your web browser.
+Login to your spotify account for authorization
 Enter the name of an artist in the search box and click the "Search" button.
 The application will retrieve information about the artist and display their top tracks.
 
