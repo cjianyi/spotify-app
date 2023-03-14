@@ -14,8 +14,32 @@
     <p>Followers: {{ artist.followers.total }}</p>
     <img src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
     <h3>Top Tracks:</h3>
-    <p>{{ cleaner(get_songs_by_artist(token, artist.id)) }}</p>
+    <div className="songs">
+    <p >{{ cleaner(get_songs_by_artist(token, artist.id)) }}</p>
   {% elif artist is none %}
+</div>
     <h2>Artist not found</h2>
   {% endif %}
 {% endblock %}
+
+
+<style>
+  .songs {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .songs p {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+
+
+
+
