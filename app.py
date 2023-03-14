@@ -5,12 +5,13 @@ from spotipy.oauth2 import SpotifyOAuth
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/myspotify', methods=['GET', 'POST'])
 def home():
     sp_oauth = create_spotify_oauth()
     auth_url = sp_oauth.get_authorize_url()
     return redirect(auth_url)
-@app.route('/main', methods=['GET', 'POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def main():
     return render_template("home.html")
 
@@ -34,7 +35,7 @@ def redirectPage():
     # code = request.args.get("code")
     # token_info = sp_oauth.get_access_token(code)
     # session[TOKEN_INFO] = token_info
-    return redirect("/main")
+    return render_template("myspotify.html")
     
 if __name__ == "__main__":
     app.run(debug=True)
